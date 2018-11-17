@@ -1,2 +1,4 @@
+build-essential
+cmake
+python3-dev
 vim
-
