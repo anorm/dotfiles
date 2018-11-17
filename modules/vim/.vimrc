@@ -53,4 +53,4 @@ highlight ColorColumn ctermbg=darkgray
 
 nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
 nnoremap <silent> <Leader><Enter> :Buffers<CR>
-let $FZF_DEFAULT_COMMAND = 'ag --path-to-ignore ~/.agignore --hidden -g ""'
+let $FZF_DEFAULT_COMMAND = 'ag -p ~/.agignore --hidden -g ""'
