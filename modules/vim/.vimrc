@@ -1,5 +1,10 @@
 set nocompatible
 filetype off
+set termguicolors
+let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
+let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+set t_ZH=[3m
+set t_ZR=[23m
 
 "Fra http://cscope.sourceforge.net/cscope_maps.vim
 "if has("cscope")
@@ -32,12 +37,15 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'majutsushi/tagbar'
+Plugin 'morhetz/gruvbox'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-colorscheme pablo
+let g:gruvbox_contrast_dark="soft"
+" let g:gruvbox_italic=1
+colorscheme gruvbox
 set breakindent
 set autoindent
 set tabstop=4
@@ -76,3 +84,5 @@ nnoremap <F8> :TagbarOpen fj<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 
 autocmd VimResized * wincmd =
+
+set nowrapscan
