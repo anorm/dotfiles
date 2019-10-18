@@ -15,4 +15,5 @@ cd build
 cmake ..
 make
 
+mkdir -p ~/bin
 ln -sf $GITDIR/build/word ~/bin/ 
