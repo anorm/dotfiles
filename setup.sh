@@ -2,7 +2,7 @@
 
 set -e
 
-MODULES=(anorm-utils vim tmux silversearcher)
+MODULES=(anorm-utils vim tmux silversearcher taskwarrior)
 
 # Install prerequisite packages
 for MODULE in "${MODULES[@]}"; do
