@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dpkg --get-selections | grep -q docker-cli && exit
+dpkg --get-selections | grep -q docker-ce-cli && exit
 
 # Download and add Docker's official public PGP key.
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -16,9 +16,10 @@ sudo add-apt-repository \
 
 # Update the apt package list (for the new apt repo).
 sudo apt-get update -y
-exit
-# Install the latest version of Docker CE.
-sudo apt-get install -y docker-ce
 
-# Allow your user to access the Docker CLI without needing root access.
-sudo usermod -aG docker $USER
+# Install the latest version of Docker CE CLI.
+sudo apt-get install -y docker-ce-cli
+
+# Modify .bashrc
+LINE='export DOCKER_HOST=tcp://localhost:2375'
+grep -qxF "$LINE" ~/.bashrc || echo "$LINE" >> ~/.bashrc
