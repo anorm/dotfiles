@@ -5,6 +5,7 @@ set -e
 MODULES=()
 
 MODULES+=('anorm-utils')
+MODULES+=('git')
 MODULES+=('other')
 MODULES+=('silversearcher')
 MODULES+=('taskwarrior')
@@ -19,8 +20,6 @@ MODULES+=('vim')
 for MODULE in "${MODULES[@]}"; do
     cat modules/$MODULE/packages.apt 2>/dev/null
 done | sort -u | sudo xargs apt install -y
-
-exit
 
 # Run module setup scripts
 for MODULE in "${MODULES[@]}"; do
