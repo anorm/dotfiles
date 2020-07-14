@@ -1,5 +1,12 @@
 #!/bin/bash
 
+set -e
+
+DIR="$( cd "$( dirname "$BASH_SOURCE" )" && pwd )"
+
+mkdir -p ~/.bashrc.d
+ln -fs $DIR/docker-cli.bashrc ~/.bashrc.d/
+
 dpkg --get-selections | grep -q docker-ce-cli && exit
 
 # Download and add Docker's official public PGP key.
@@ -19,7 +26,3 @@ sudo apt-get update -y
 
 # Install the latest version of Docker CE CLI.
 sudo apt-get install -y docker-ce-cli
-
-# Modify .bashrc
-LINE='export DOCKER_HOST=tcp://localhost:2375'
-grep -qxF "$LINE" ~/.bashrc || echo "$LINE" >> ~/.bashrc
