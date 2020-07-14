@@ -17,3 +17,7 @@ fi
 if ! git config --global --get alias.st >/dev/null; then
     git config --global alias.st "status -bs"
 fi
+
+LINE='.*.swp'
+grep -qxF "$LINE" ~/.gitignore 2> /dev/null || echo "$LINE" >> ~/.gitignore
+git config --global core.excludesfile ~/.gitignore
