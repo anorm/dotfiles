@@ -5,6 +5,7 @@ set -e
 MODULES=()
 
 MODULES+=('anorm-utils')
+MODULES+=('bash')
 MODULES+=('docker-compose')
 MODULES+=('git')
 MODULES+=('mega-upgrade')
