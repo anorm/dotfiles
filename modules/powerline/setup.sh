@@ -9,11 +9,5 @@ mkdir -p ~/.config/
 rm -f ~/.config/powerline
 ln -sf $DIR/config_files ~/.config/powerline
 
-if ! grep -qF powerline.sh ~/.bashrc; then
-    echo 'if [ -f ~/.local/lib/python3.*/site-packages/powerline/bindings/$(basename $SHELL)/powerline.sh ]; then' >> ~/.bashrc
-    echo '    $HOME/.local/bin/powerline-daemon -q' >> ~/.bashrc
-    echo '    POWERLINE_BASH_CONTINUATION=1' >> ~/.bashrc
-    echo '    POWERLINE_BASH_SELECT=1' >> ~/.bashrc
-    echo '    source ~/.local/lib/python3.*/site-packages/powerline/bindings/$(basename $SHELL)/powerline.sh' >> ~/.bashrc
-    echo 'fi' >> ~/.bashrc
-fi
+mkdir -p ~/.bashrc.d
+ln -fs $DIR/powerline.bashrc ~/.bashrc.d/
