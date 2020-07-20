@@ -22,3 +22,6 @@ FZFDIR=$DIR/.vim/bundle/fzf
     cd $FZFDIR
     ./install --bin
 )
+
+mkdir -p ~/.bashrc.d/
+echo 'export EDITOR=vim' >> ~/.bashrc.d/use-vim.bashrc
