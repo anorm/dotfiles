@@ -18,3 +18,4 @@ fi
 EOF
 mkdir -p ~/.bashrc.d/
 ln -fs $DIR/00-local-bin-paths.bashrc ~/.bashrc.d/
+ln -fs $DIR/01-opts.bashrc ~/.bashrc.d/
