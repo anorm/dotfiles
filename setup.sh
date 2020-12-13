@@ -26,7 +26,7 @@ fi
 
 # Install prerequisite packages
 for MODULE in "${MODULES[@]}"; do
-    cat modules/$MODULE/packages.apt 2>/dev/null
+    cat modules/$MODULE/packages.apt 2>/dev/null || true
 done | sort -u | sudo xargs apt install -y
 
 # Run module setup scripts
