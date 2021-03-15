@@ -38,9 +38,9 @@ Plugin 'dense-analysis/ale'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-let g:gruvbox_contrast_dark="soft"
+let g:gruvbox_contrast_dark="hard"
 " let g:gruvbox_italic=1
-silent! colorscheme 256_noir
+silent! colorscheme gruvbox
 set breakindent
 set autoindent
 set tabstop=4
