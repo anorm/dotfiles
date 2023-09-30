@@ -18,6 +18,7 @@ MODULES+=('vim')
 if grep -q Microsoft /proc/version 2>/dev/null; then
     MODULES+=('docker-cli')
     MODULES+=('wsl')
+    MODULES+=('xclip-xsel-wsl')
 fi
 
 # Install prerequisite packages
