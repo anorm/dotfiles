@@ -16,6 +16,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Plugin list
+Plugin 'andreasvc/vim-256noir'
 Plugin 'itchyny/lightline.vim'          " Fancy status line
 Plugin 'sheerun/vim-polyglot'           " Language packs
 "Plugin 'ctrlpvim/ctrlp.vim'
@@ -39,7 +40,7 @@ filetype plugin indent on    " required
 
 let g:gruvbox_contrast_dark="soft"
 " let g:gruvbox_italic=1
-colorscheme gruvbox
+silent! colorscheme 256_noir
 set breakindent
 set autoindent
 set tabstop=4
@@ -59,7 +60,7 @@ set fillchars+=vert:\│
 set laststatus=2
 
 highlight ColorColumn ctermbg=red
-call matchadd('ColorColumn', '\%81v', 100)
+call matchadd('ColorColumn', '\%121v', 100)
 
 nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
 nnoremap <silent> <Leader>f :FZF -q <cfile><cr>
@@ -112,14 +113,14 @@ augroup omnisharp_commands
 
 	" The following commands are contextual, based on the cursor position.
 	autocmd FileType cs nmap <silent> <buffer> gd <Plug>(omnisharp_go_to_definition)
-	autocmd FileType cs nmap <silent> <buffer> <Leader>osfu <Plug>(omnisharp_find_usages)
-	autocmd FileType cs nmap <silent> <buffer> <Leader>osfi <Plug>(omnisharp_find_implementations)
-	autocmd FileType cs nmap <silent> <buffer> <Leader>ospd <Plug>(omnisharp_preview_definition)
-	autocmd FileType cs nmap <silent> <buffer> <Leader>ospi <Plug>(omnisharp_preview_implementations)
-	autocmd FileType cs nmap <silent> <buffer> <Leader>ost <Plug>(omnisharp_type_lookup)
-	autocmd FileType cs nmap <silent> <buffer> <Leader>osd <Plug>(omnisharp_documentation)
-	autocmd FileType cs nmap <silent> <buffer> <Leader>osfs <Plug>(omnisharp_find_symbol)
-	autocmd FileType cs nmap <silent> <buffer> <Leader>osfx <Plug>(omnisharp_fix_usings)
+	autocmd FileType cs nmap <silent> <buffer> <Leader>fu <Plug>(omnisharp_find_usages)
+	autocmd FileType cs nmap <silent> <buffer> <Leader>fi <Plug>(omnisharp_find_implementations)
+	autocmd FileType cs nmap <silent> <buffer> <Leader>pd <Plug>(omnisharp_preview_definition)
+	autocmd FileType cs nmap <silent> <buffer> <Leader>pi <Plug>(omnisharp_preview_implementations)
+	autocmd FileType cs nmap <silent> <buffer> <Leader>t <Plug>(omnisharp_type_lookup)
+	autocmd FileType cs nmap <silent> <buffer> <Leader>d <Plug>(omnisharp_documentation)
+	autocmd FileType cs nmap <silent> <buffer> <Leader>fs <Plug>(omnisharp_find_symbol)
+	autocmd FileType cs nmap <silent> <buffer> <Leader>fx <Plug>(omnisharp_fix_usings)
 	autocmd FileType cs nmap <silent> <buffer> <C-\> <Plug>(omnisharp_signature_help)
 	autocmd FileType cs imap <silent> <buffer> <C-\> <Plug>(omnisharp_signature_help)
 
@@ -141,4 +142,5 @@ augroup omnisharp_commands
 	autocmd FileType cs nmap <silent> <buffer> <Leader>ossp <Plug>(omnisharp_stop_server)
 augroup END
 
-set updatetime=500
+autocmd FileType cs set makeprg=dotnet\ msbuild\ /nologo\ /v:q\ /property:GenerateFullPaths=true
+autocmd FileType cs set errorformat=\ %#%f(%l\\\,%c):\ %m
