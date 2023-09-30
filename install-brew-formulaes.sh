@@ -4,6 +4,7 @@ brew install --formulae \
     k9s \
     liquidprompt \
     structurizr-cli \
+    terraform \
     the_silver_searcher \
     tig \
     tmux \
