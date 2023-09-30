@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 DIR="$( cd "$( dirname "$BASH_SOURCE" )" && pwd )"
 ln -fs $DIR/.vimrc ~
 ln -fs $DIR/.vim ~
@@ -9,13 +11,13 @@ if [ ! -e $VUNDLE_DIR ]; then
 fi
 vim -c PluginInstall -c qa!
 
-YCMDIR=$DIR/.vim/bundle/YouCompleteMe
-if [ ! -f $YCMDIR/third_party/ycmd/ycm_core.so ]; then
-    (
-        cd $YCMDIR
-        ./install.py --clang-completer
-    )
-fi
+#YCMDIR=$DIR/.vim/bundle/YouCompleteMe
+#if [ ! -f $YCMDIR/third_party/ycmd/ycm_core.so ]; then
+#    (
+#        cd $YCMDIR
+#        ./install.py --clang-completer
+#    )
+#fi
 
 FZFDIR=$DIR/.vim/bundle/fzf
 (

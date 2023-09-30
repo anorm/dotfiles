@@ -28,8 +28,8 @@ if grep -q Microsoft /proc/version 2>/dev/null; then
     MODULES+=('xclip-xsel-wsl')
 fi
 
-if [[ $EUID -ne 0 ]]; then
-    echo "This script must be run as root" 1>&2
+if [[ $EUID -eq 0 ]]; then
+    echo "This script must be run as you, not root" 1>&2
     exit 1
 fi
 
@@ -42,14 +42,14 @@ for MODULE in "${MODULES[@]}"; do
     fi
 done
 
-apt update
+sudo apt update
 
 # Install prerequisite packages
 for MODULE in "${MODULES[@]}"; do
     cat modules/$MODULE/packages.apt 2>/dev/null || true
-done | sort -u | xargs apt install -y
+done | sort -u | xargs sudo apt install -y
 
 # Run module setup scripts
 for MODULE in "${MODULES[@]}"; do
-    [ -e modules/$MODULE/setup.sh ] && modules/$MODULE/setup.sh
+    [ -e modules/$MODULE/setup.sh ] && echo -e "============================\n      $MODULE\n============================" && modules/$MODULE/setup.sh
 done
