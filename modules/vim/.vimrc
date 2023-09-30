@@ -1,23 +1,12 @@
 set nocompatible
 filetype off
+
+" For 24 bit colors
 set termguicolors
 let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
 let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
 set t_ZH=[3m
 set t_ZR=[23m
-
-"Fra http://cscope.sourceforge.net/cscope_maps.vim
-"if has("cscope")
-"    cs add cscope.out
-"    nmap <C-x>s :cs find s <C-R>=expand("<cword>")<CR><CR>	
-"    nmap <C-x>g :cs find g <C-R>=expand("<cword>")<CR><CR>	
-"    nmap <C-x>c :cs find c <C-R>=expand("<cword>")<CR><CR>	
-"    nmap <C-x>t :cs find t <C-R>=expand("<cword>")<CR><CR>	
-"    nmap <C-x>e :cs find e <C-R>=expand("<cword>")<CR><CR>	
-"    nmap <C-x>f :cs find f <C-R>=expand("<cfile>")<CR><CR>	
-"    nmap <C-x>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-"    nmap <C-x>d :cs find d <C-R>=expand("<cword>")<CR><CR>	
-"endif
 
 " Vundle init code
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -25,20 +14,20 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Plugin list
-Plugin 'itchyny/lightline.vim'
-Plugin 'sheerun/vim-polyglot'
+Plugin 'itchyny/lightline.vim'          " Fancy status line
+Plugin 'sheerun/vim-polyglot'           " Language packs
 "Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/fzf'                   " Fuzzy finder
+Plugin 'junegunn/fzf.vim'               " Fuzzy finder
 "Plugin 'rhysd/vim-clang-format'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'embear/vim-localvimrc'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'majutsushi/tagbar'
-Plugin 'morhetz/gruvbox'
-Plugin 'tpope/vim-fugitive'
+Plugin 'Valloric/YouCompleteMe'         " C++ language support
+Plugin 'embear/vim-localvimrc'          " Support .lvimrc files
+Plugin 'christoomey/vim-tmux-navigator' " tmux integration
+Plugin 'scrooloose/nerdtree'            " File explorer
+Plugin 'Xuyuanp/nerdtree-git-plugin'    " File explorer git status
+Plugin 'majutsushi/tagbar'              " Outline view
+Plugin 'morhetz/gruvbox'                " Color scheme
+Plugin 'tpope/vim-fugitive'             " Git integration
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -87,5 +76,11 @@ nnoremap <F8> :TagbarOpen fj<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 
 autocmd VimResized * wincmd =
+autocmd BufWritePre * %s/\s\+$//e
 
 set nowrapscan
+set number
+
+if &diff
+    set noreadonly
+endif
