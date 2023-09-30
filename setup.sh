@@ -21,6 +21,7 @@ MODULES+=('taskwarrior')
 MODULES+=('terraform')
 MODULES+=('tmux')
 MODULES+=('vim')
+MODULES+=('azure-cli')
 
 if grep -q Microsoft /proc/version 2>/dev/null; then
     MODULES+=('docker-cli')
