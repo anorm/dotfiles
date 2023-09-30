@@ -19,6 +19,8 @@ fi
 echo "Making symlink ~/bin/k9s -> $install_dir/k9s"
 ln -sf $install_dir/k9s ~/bin/k9s
 
+echo "Installing k9"
+ln -fs $DIR/k9 ~/bin/
 echo "Installing k9 bash completion"
 ln -fs $DIR/k9-complete.bashrc ~/.bashrc.d/
 

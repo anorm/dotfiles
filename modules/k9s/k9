@@ -1,0 +1,8 @@
+#!/bin/bash
+set -eu
+export KUBECONFIG=~/.kube/config.d/$1
+if [ ! -e $KUBECONFIG ]; then
+    echo "KUBECONFIG not found: $KUBECONFIG" >&2
+    exit 1
+fi
+k9s
