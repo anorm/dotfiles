@@ -23,7 +23,7 @@ Plugin 'sheerun/vim-polyglot'           " Language packs
 Plugin 'junegunn/fzf'                   " Fuzzy finder
 Plugin 'junegunn/fzf.vim'               " Fuzzy finder
 "Plugin 'rhysd/vim-clang-format'
-"Plugin 'Valloric/YouCompleteMe'         " C++ language support
+Plugin 'Valloric/YouCompleteMe'         " C++ language support
 Plugin 'embear/vim-localvimrc'          " Support .lvimrc files
 Plugin 'christoomey/vim-tmux-navigator' " tmux integration
 Plugin 'scrooloose/nerdtree'            " File explorer
@@ -56,6 +56,8 @@ syntax on
 set wildmode=longest:full,full
 set wildmenu
 set fillchars+=vert:\│
+set list
+set listchars=tab:>-
 
 " To fix that lightline doesn't show up
 set laststatus=2
@@ -91,6 +93,9 @@ set number
 if &diff
     set noreadonly
 endif
+
+let g:ale_python_flake8_options = '--max-line-length=188'
+let g:ale_set_quickfix=0
 
 "
 " OmniSharp
