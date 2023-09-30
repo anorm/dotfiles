@@ -2,14 +2,27 @@
 
 set -e
 
-MODULES=(anorm-utils vim tmux silversearcher taskwarrior)
+MODULES=()
+
+MODULES+=('anorm-utils')
+MODULES+=('other')
+MODULES+=('silversearcher')
+MODULES+=('taskwarrior')
+MODULES+=('tmux')
+MODULES+=('vim')
+
+#if grep -q Microsoft /proc/version 2>/dev/null; then
+#    MODULES+=('docker-cli')
+#fi
 
 # Install prerequisite packages
 for MODULE in "${MODULES[@]}"; do
     cat modules/$MODULE/packages.apt 2>/dev/null
 done | sort -u | sudo xargs apt install -y
 
+exit
+
 # Run module setup scripts
 for MODULE in "${MODULES[@]}"; do
-    modules/$MODULE/setup.sh
+    [ -e modules/$MODULE/setup.sh ] && modules/$MODULE/setup.sh
 done
