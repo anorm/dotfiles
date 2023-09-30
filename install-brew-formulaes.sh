@@ -8,4 +8,5 @@ brew install --formulae \
     tig \
     tmux \
     tpm \
+    vim \
     ;
