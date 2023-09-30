@@ -9,3 +9,5 @@ if [ ! -e $THEMEDIR ]; then
 fi
 ln -fs $THEMEDIR ~/.tmux-themepack
 
+mkdir -p ~/bin
+ln -fs $DIR/link_ssh_auth_sock.sh ~/bin/
