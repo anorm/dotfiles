@@ -51,8 +51,8 @@ set wildmenu
 " To fix that lightline doesn't show up
 set laststatus=2
 
-highlight ColorColumn ctermbg=darkgray
-set colorcolumn=80
+highlight ColorColumn ctermbg=red
+call matchadd('ColorColumn', '\%81v', 100)
 
 nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
 nnoremap <silent> <Leader><Enter> :Buffers<CR>
@@ -66,3 +66,5 @@ nnoremap <silent> <left> :TmuxNavigateLeft<cr>
 nnoremap <silent> <down> :TmuxNavigateDown<cr>
 nnoremap <silent> <up> :TmuxNavigateUp<cr>
 nnoremap <silent> <right> :TmuxNavigateRight<cr>
+
+autocmd VimResized * wincmd =
