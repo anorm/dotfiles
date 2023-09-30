@@ -33,6 +33,8 @@ antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
 # Tell Antigen that you're done.
 antigen apply
 
+export CASE_SENSITIVE=true
+
 SPACESHIP_DIR_COLOR="blue"
 SPACESHIP_GIT_STATUS_DIVERGED="$SPACESHIP_GIT_STATUS_AHEAD$SPACESHIP_GIT_STATUS_BEHIND"
 SPACESHIP_HOST_SHOW="false"
