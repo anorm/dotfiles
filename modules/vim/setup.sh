@@ -10,10 +10,12 @@ fi
 vim -c PluginInstall -c qa!
 
 YCMDIR=$DIR/.vim/bundle/YouCompleteMe
-(
-    cd $YCMDIR
-    ./install.py --clang-completer
-)
+if [ ! -f $YCMDIR/third_party/ycmd/ycm_core.so ]; then
+    (
+        cd $YCMDIR
+        ./install.py --clang-completer
+    )
+fi
 
 FZFDIR=$DIR/.vim/bundle/fzf
 (
