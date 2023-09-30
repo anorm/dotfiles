@@ -33,6 +33,7 @@ Plugin 'morhetz/gruvbox'                " Color scheme
 Plugin 'tpope/vim-fugitive'             " Git integration
 Plugin 'OmniSharp/omnisharp-vim'
 Plugin 'dense-analysis/ale'
+Plugin 'vis'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -50,7 +51,7 @@ set background=dark
 set noshowmode
 set autowrite
 set hlsearch
-"set incsearch
+set incsearch
 syntax on
 set wildmode=longest:full,full
 set wildmenu
@@ -60,6 +61,7 @@ set fillchars+=vert:\│
 set laststatus=2
 
 highlight ColorColumn ctermbg=red
+hi Search guibg=#A07820 guifg=#000000
 call matchadd('ColorColumn', '\%121v', 100)
 
 nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
