@@ -23,7 +23,7 @@ Plugin 'sheerun/vim-polyglot'           " Language packs
 Plugin 'junegunn/fzf'                   " Fuzzy finder
 Plugin 'junegunn/fzf.vim'               " Fuzzy finder
 "Plugin 'rhysd/vim-clang-format'
-Plugin 'Valloric/YouCompleteMe'         " C++ language support
+"Plugin 'Valloric/YouCompleteMe'         " C++ language support
 Plugin 'embear/vim-localvimrc'          " Support .lvimrc files
 Plugin 'christoomey/vim-tmux-navigator' " tmux integration
 Plugin 'scrooloose/nerdtree'            " File explorer
@@ -66,6 +66,7 @@ highlight ColorColumn ctermbg=red
 hi Search guibg=#A07820 guifg=#000000
 call matchadd('ColorColumn', '\%121v', 100)
 
+let mapleader = ','
 nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
 nnoremap <silent> <Leader>f :FZF -q <cfile><cr>
 nnoremap <silent> <Leader><Enter> :Buffers<CR>
