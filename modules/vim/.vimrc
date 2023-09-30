@@ -27,6 +27,8 @@ Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 "Plugin 'rhysd/vim-clang-format'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'embear/vim-localvimrc'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -50,7 +52,17 @@ set wildmenu
 set laststatus=2
 
 highlight ColorColumn ctermbg=darkgray
+set colorcolumn=80
 
 nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
 nnoremap <silent> <Leader><Enter> :Buffers<CR>
 let $FZF_DEFAULT_COMMAND = 'ag -p ~/.agignore --hidden -g ""'
+
+let g:localvimrc_ask = 0
+
+let g:tmux_navigator_disable_when_zoomed = 1
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <left> :TmuxNavigateLeft<cr>
+nnoremap <silent> <down> :TmuxNavigateDown<cr>
+nnoremap <silent> <up> :TmuxNavigateUp<cr>
+nnoremap <silent> <right> :TmuxNavigateRight<cr>
