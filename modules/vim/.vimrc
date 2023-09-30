@@ -96,6 +96,7 @@ endif
 " OmniSharp
 "   inspired by https://github.com/OmniSharp/omnisharp-vim#example-vimrc
 "
+let g:OmniSharp_server_stdio = 1
 if has('patch-8.1.1880')
 	set completeopt=longest,menuone,popuphidden
 	" Highlight the completion documentation popup background/foreground the same as
