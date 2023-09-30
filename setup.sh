@@ -5,16 +5,18 @@ set -e
 MODULES=()
 
 MODULES+=('anorm-utils')
+MODULES+=('docker-compose')
 MODULES+=('git')
+MODULES+=('mega-upgrade')
 MODULES+=('other')
 MODULES+=('silversearcher')
 MODULES+=('taskwarrior')
 MODULES+=('tmux')
 MODULES+=('vim')
 
-#if grep -q Microsoft /proc/version 2>/dev/null; then
-#    MODULES+=('docker-cli')
-#fi
+if grep -q Microsoft /proc/version 2>/dev/null; then
+    MODULES+=('docker-cli')
+fi
 
 # Install prerequisite packages
 for MODULE in "${MODULES[@]}"; do
