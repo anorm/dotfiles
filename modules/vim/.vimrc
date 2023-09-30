@@ -38,6 +38,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'majutsushi/tagbar'
 Plugin 'morhetz/gruvbox'
+Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -59,6 +60,7 @@ set hlsearch
 syntax on
 set wildmode=longest:full,full
 set wildmenu
+set fillchars+=vert:\│
 
 " To fix that lightline doesn't show up
 set laststatus=2
@@ -67,6 +69,7 @@ highlight ColorColumn ctermbg=red
 call matchadd('ColorColumn', '\%81v', 100)
 
 nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
+nnoremap <silent> <Leader>f :FZF -q <cfile><cr>
 nnoremap <silent> <Leader><Enter> :Buffers<CR>
 let $FZF_DEFAULT_COMMAND = 'ag -p ~/.agignore --hidden -g ""'
 
