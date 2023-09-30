@@ -1,0 +1,4 @@
+shopt -s histverify
+HISTSIZE=10000
+HISTFILESIZE=10000
+HISTCONTROL=ignoreboth
