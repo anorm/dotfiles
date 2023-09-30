@@ -1,6 +1,7 @@
 brew install --formulae \
     adr-tools \
     imagemagick \
+    helmfile \
     k9s \
     liquidprompt \
     structurizr-cli \
