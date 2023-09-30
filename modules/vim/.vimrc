@@ -29,11 +29,15 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'embear/vim-localvimrc'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+colorscheme pablo
 set breakindent
 set autoindent
 set tabstop=4
@@ -66,5 +70,9 @@ nnoremap <silent> <left> :TmuxNavigateLeft<cr>
 nnoremap <silent> <down> :TmuxNavigateDown<cr>
 nnoremap <silent> <up> :TmuxNavigateUp<cr>
 nnoremap <silent> <right> :TmuxNavigateRight<cr>
+
+nnoremap <F4> :e %:p:s,.hpp$,.X123X,:s,.cpp$,.hpp,:s,.X123X$,.cpp,<CR>
+nnoremap <F8> :TagbarOpen fj<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 autocmd VimResized * wincmd =
