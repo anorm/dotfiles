@@ -2,6 +2,8 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 autoload -Uz compinit
 compinit
+autoload bashcompinit
+bashcompinit
 
 setopt noautomenu
 
