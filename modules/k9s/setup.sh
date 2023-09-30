@@ -5,7 +5,7 @@ DIR="$( cd "$( dirname "$BASH_SOURCE" )" && pwd )"
 meta=$(mktemp)
 curl -sSL "https://api.github.com/repos/derailed/k9s/releases/latest" > $meta
 version="$(jq -er .tag_name $meta)"
-filename="k9s_$(uname -s)_$(uname -m).tar.gz"
+filename="k9s_$(uname -s)_$(dpkg --print-architecture).tar.gz"
 url="$(jq -er ".assets[] | select(.name == \"$filename\") | .browser_download_url" $meta)"
 install_dir=~/bin/$(basename $filename .tar.gz)/$version
 if [ ! -e $install_dir ]; then
