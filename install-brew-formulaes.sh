@@ -1,5 +1,6 @@
 brew install --formulae \
     adr-tools \
+    azure-cli \
     dos2unix \
     imagemagick \
     helmfile \
