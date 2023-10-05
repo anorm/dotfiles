@@ -4,6 +4,7 @@ brew install --formulae \
     ddgr \
     dos2unix \
     imagemagick \
+    jq \
     helmfile \
     k9s \
     kubectl \
