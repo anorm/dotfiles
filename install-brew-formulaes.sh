@@ -1,8 +1,10 @@
 brew install --formulae \
     adr-tools \
+    dos2unix \
     imagemagick \
     helmfile \
     k9s \
+    kubectl \
     liquidprompt \
     structurizr-cli \
     terraform \
@@ -10,5 +12,6 @@ brew install --formulae \
     tig \
     tmux \
     tpm \
+    tree \
     vim \
     ;
