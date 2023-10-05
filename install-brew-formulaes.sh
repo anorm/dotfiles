@@ -17,4 +17,5 @@ brew install --formulae \
     tpm \
     tree \
     vim \
+    yq \
     ;
