@@ -1,0 +1,68 @@
+#!/bin/bash
+set -eu
+
+#kubectl run --rm -it kubeshell --image alpine
+
+IMAGE=alpine
+NAMESPACE=default
+PVC=""
+PODNAME=kubeshell-$(date +%s)
+
+while getopts h?i:n:p: OPT; do
+    case "$OPT" in
+        i)
+            IMAGE="$OPTARG"
+            ;;
+        n)
+            NAMESPACE="$OPTARG"
+            ;;
+        p)
+            PVC="$OPTARG"
+            ;;
+        h|[?])
+            echo "Usage: $0 [-i image] [-n namespace] [-p pvc]" >&2
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+MANIFEST=$(mktemp)
+
+cat << EOF > $MANIFEST
+apiVersion: v1
+kind: Pod
+metadata:
+  name: $PODNAME
+  namespace: $NAMESPACE
+  annotations:
+    owner: $(whoami)@$(hostname)
+spec:
+  restartPolicy: Never
+  containers:
+  - name: main
+    image: $IMAGE
+    imagePullPolicy: Always
+    stdin: true
+    tty: true
+EOF
+
+if [ ! -z $PVC ]; then
+cat << EOF >> $MANIFEST
+    volumeMounts:
+    - name: vol
+      mountPath: /data
+  volumes:
+  - name: vol
+    persistentVolumeClaim:
+      claimName: $PVC
+EOF
+fi
+
+kubectl create -f $MANIFEST
+kubectl wait --for condition=Ready -n $NAMESPACE pod/$PODNAME --timeout=600s
+kubectl attach -it -n $NAMESPACE pod/$PODNAME
+sleep 0.3
+kubectl delete -n $NAMESPACE pod/$PODNAME
+
+rm $MANIFEST

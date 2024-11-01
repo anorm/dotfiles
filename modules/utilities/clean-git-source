@@ -1,0 +1,4 @@
+#!/bin/bash
+git ls | xargs dos2unix
+git ls | xargs sed -I "" -e 's/ *$//g'
+git ls | xargs pcregrep -LMr '\n\Z' | while read f; do echo >> $f; done

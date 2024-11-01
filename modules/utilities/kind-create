@@ -1,0 +1,53 @@
+#!/bin/bash
+
+CONFIG=$(mktemp)
+cat <<EOF > $CONFIG
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+  #image: kindest/node:v1.28.6@sha256:b7e1cf6b2b729f604133c667a6be8aab6f4dde5bb042c1891ae248d9154f665b
+  kubeadmConfigPatches:
+  - |
+    kind: InitConfiguration
+    nodeRegistration:
+      kubeletExtraArgs:
+        node-labels: "ingress-ready=true"
+  extraPortMappings:
+  - containerPort: 30080
+    hostPort: 80
+    protocol: TCP
+  - containerPort: 30443
+    hostPort: 443
+    protocol: TCP
+EOF
+
+kind create cluster --kubeconfig ~/.kube/config.d/kind --config=$CONFIG
+
+export KUBECONFIG=~/.kube/config.d/kind
+
+HELMFILE=$(mktemp)
+cat << EOF > $HELMFILE
+repositories:
+  - name: ingress-nginx
+    url: https://kubernetes.github.io/ingress-nginx
+
+releases:
+  - name: ingress-nginx
+    namespace: ingress-controller
+    chart: ingress-nginx/ingress-nginx
+    values:
+      - controller:
+          allowSnippetAnnotations: true
+          config:
+            force-ssl-redirect: true
+          service:
+            type: NodePort
+            nodePorts:
+              http: 30080
+              https: 30443
+
+EOF
+helmfile apply -f $HELMFILE
+
+rm $CONFIG

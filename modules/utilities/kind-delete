@@ -1,0 +1,1 @@
+kind delete cluster --kubeconfig ~/.kube/config.d/kind
