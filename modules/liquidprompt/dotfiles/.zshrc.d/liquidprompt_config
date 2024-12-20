@@ -21,6 +21,7 @@ export LP_MARK_BRACKET_CLOSE=$' \b'
 export LP_MARK_DEFAULT='❯'
 export LP_MARK_GIT='❯'
 export LP_MARK_PERM=$' \b'
+export LP_DELIMITER_KUBECONTEXT_PREFIX="/"
 #BG1="$(tput setab 160)"
 #export LP_COLOR_PATH="$BG1"
 #export LP_COLOR_PATH_LAST_DIR="$BG1"
