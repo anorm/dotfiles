@@ -1,0 +1,24 @@
+#!/bin/bash
+SHOW=0
+
+if [[ $SHOW == 0 ]]; then
+    if [[ $(git status --porcelain) ]]; then
+        SHOW=1
+    fi
+fi
+
+if [[ $SHOW == 0 ]]; then
+    if [[ $(git rev-list @{u}..) ]]; then
+        SHOW=1
+    fi
+fi
+
+if [[ $SHOW == 0 ]]; then
+    if [[ $(git rev-list ..@{u}) ]]; then
+        SHOW=1
+    fi
+fi
+
+if [[ $SHOW == 1 ]]; then
+    git -c color.ui=always st
+fi

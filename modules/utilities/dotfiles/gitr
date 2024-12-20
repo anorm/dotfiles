@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -t 1 ] ; then
-    HEADER_START="$(tput bold)$(tput setaf 172)"
+    HEADER_START="$(tput bold)$(tput setaf 8)"
     HEADER_END="$(tput sgr0)"
 else
     HEADER_START=""
