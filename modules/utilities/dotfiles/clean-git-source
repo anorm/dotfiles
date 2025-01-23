@@ -1,4 +1,11 @@
 #!/bin/bash
-git ls | xargs dos2unix
-git ls | xargs sed -I "" -e 's/ *$//g'
-git ls | xargs pcregrep -LMr '\n\Z' | while read f; do echo >> $f; done
+(
+	if [ "$#" -ge 1 ]; then
+		for f in "$@"; do echo $f; done
+	else
+		git ls
+	fi
+) | while read f; do
+	xargs dos2unix -e $f
+	sed -I "" -e 's/ *$//g' $f
+done
