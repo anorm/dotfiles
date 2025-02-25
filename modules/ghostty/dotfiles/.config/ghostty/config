@@ -1,4 +1,4 @@
-window-decoration = true
+window-decoration = false
 #macos-non-native-fullscreen = padded-notch
 #macos-non-native-fullscreen = visible-menu
 macos-non-native-fullscreen = true
