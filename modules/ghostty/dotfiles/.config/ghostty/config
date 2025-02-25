@@ -1,0 +1,13 @@
+window-decoration = true
+#macos-non-native-fullscreen = padded-notch
+#macos-non-native-fullscreen = visible-menu
+macos-non-native-fullscreen = true
+#theme = iTerm2 Default
+theme = GruvboxDarkHard
+font-family="Iosevka Fixed"
+font-family-italic="Iosevka Fixed Slab"
+font-size=15
+keybind = cmd+enter=toggle_fullscreen
+keybind = opt+right=unbind
+keybind = opt+left=unbind
+#window-padding-y = 40,0
