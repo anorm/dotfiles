@@ -5,7 +5,7 @@
 	path = modules/nvim/config/lua/plugins/fzf-bundle/submodules/fzf.vim
 	url = git@github.com:junegunn/fzf.vim.git
 [submodule "modules/nvim/config/pack/plugins/start/vim-fugitive"]
-	path = modules/nvim/config/pack/plugins/start/vim-fugitive
+	path = modules/nvim/config/lua/plugins/vim-fugitive-bundle/submodules/vim-fugitive
 	url = git@github.com:tpope/vim-fugitive.git
 [submodule "modules/nvim/config/pack/plugins/start/gruvbox.nvim"]
 	path = modules/nvim/config/lua/plugins/gruvbox-bundle/submodules/gruvbox.nvim
