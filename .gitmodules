@@ -1,15 +1,15 @@
 [submodule "modules/nvim/config/pack/plugins/start/fzf"]
-	path = modules/nvim/config/pack/plugins/start/fzf
+	path = modules/nvim/config/lua/plugins/fzf-bundle/submodules/fzf
 	url = git@github.com:junegunn/fzf.git
 [submodule "modules/nvim/config/pack/plugins/start/fzf.vim"]
-	path = modules/nvim/config/pack/plugins/start/fzf.vim
+	path = modules/nvim/config/lua/plugins/fzf-bundle/submodules/fzf.vim
 	url = git@github.com:junegunn/fzf.vim.git
 [submodule "modules/nvim/config/pack/plugins/start/vim-fugitive"]
 	path = modules/nvim/config/pack/plugins/start/vim-fugitive
 	url = git@github.com:tpope/vim-fugitive.git
 [submodule "modules/nvim/config/pack/plugins/start/gruvbox.nvim"]
-	path = modules/nvim/config/pack/plugins/start/gruvbox.nvim
+	path = modules/nvim/config/lua/plugins/gruvbox-bundle/submodules/gruvbox.nvim
 	url = git@github.com:ellisonleao/gruvbox.nvim.git
 [submodule "modules/nvim/config/pack/plugins/start/oil.nvim"]
-	path = modules/nvim/config/pack/plugins/start/oil.nvim
+	path = modules/nvim/config/lua/plugins/oil-bundle/submodules/oil.nvim
 	url = git@github.com:stevearc/oil.nvim.git
