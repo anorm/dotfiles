@@ -7,6 +7,7 @@ mouse-hide-while-typing = true
 theme = GruvboxDarkHard
 font-family="Iosevka Fixed"
 font-size=15
+background=#0c0f0e
 
 # Key bindings
 keybind = cmd+enter=toggle_fullscreen
