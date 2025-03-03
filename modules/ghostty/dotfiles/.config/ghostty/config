@@ -1,6 +1,7 @@
 # Chrome
 window-decoration = false
 macos-non-native-fullscreen = true
+mouse-hide-while-typing = true
 
 # Colors
 theme = GruvboxDarkHard
