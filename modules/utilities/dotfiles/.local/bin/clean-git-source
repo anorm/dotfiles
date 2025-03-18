@@ -1,11 +1,11 @@
 #!/bin/bash
 (
-	if [ "$#" -ge 1 ]; then
-		for f in "$@"; do echo $f; done
-	else
-		git ls
-	fi
+    if [ "$#" -ge 1 ]; then
+        for f in "$@"; do echo $f; done
+    else
+        git ls
+    fi
 ) | while read f; do
-	xargs dos2unix -e $f
-	sed -I "" -e 's/ *$//g' $f
+    dos2unix -q -e $f
+    sed -I "" -e 's/ *$//g' $f
 done
