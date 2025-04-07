@@ -1,21 +1,38 @@
 brew install --formulae \
-    adr-tools \
-    azure-cli \
+    bash-completion \
+    csvkit \
     ddgr \
     dos2unix \
-    imagemagick \
-    jq \
+    ffmpeg \
+    fswatch \
+    fzf \
+    go \
     helmfile \
+    httpie \
+    jq \
     k9s \
-    kubectl \
+    kind \
+    kubernetes-cli \
     liquidprompt \
-    structurizr-cli \
+    lnav \
+    maven \
+    moreutils \
+    neovim \
+    nmap \
+    opentofu \
+    perl \
+    pipx \
+    rclone \
+    ripgrep \
+    rsync \
     terraform \
     the_silver_searcher \
     tig \
     tmux \
     tpm \
     tree \
-    vim \
+    unzip \
+    watch \
+    wget \
     yq \
     ;
