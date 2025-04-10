@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#
+# Decodes base64 encoded lines (to be used while editing k8s secrets together with `enc`
+#
+
+set -eu
+
+while read line; do
+    echo $line | base64 -d
+    echo
+done
