@@ -33,6 +33,7 @@ brew install --formulae \
     tree \
     unzip \
     watch \
+    watson \
     wget \
     yq \
     ;
