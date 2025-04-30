@@ -4,6 +4,7 @@ function _set_kube_config() {
 
     if [ -z "$NAME" ]; then
         unset KUBECONFIG
+        echo "KUBECONFIG is now <unset>"
         return 0
     fi
 
@@ -15,6 +16,8 @@ function _set_kube_config() {
     fi
 
     export KUBECONFIG=$TARGET
+    echo "KUBECONFIG is now $KUBECONFIG"
+    echo "  using context '$(yq .current-context $KUBECONFIG)'"
 }
 alias ku=_set_kube_config
 
