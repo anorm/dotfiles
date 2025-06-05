@@ -13,3 +13,12 @@
 [submodule "modules/nvim/config/pack/plugins/start/oil.nvim"]
 	path = modules/nvim/config/lua/plugins/oil-bundle/submodules/oil.nvim
 	url = git@github.com:stevearc/oil.nvim.git
+[submodule "modules/nvim/config/lua/plugins/mason-bundle/submodules/mason.nvim"]
+	path = modules/nvim/config/lua/plugins/lsp-bundle/submodules/mason.nvim
+	url = git@github.com:mason-org/mason.nvim.git
+[submodule "modules/nvim/config/lua/plugins/mason-bundle/submodules/mason-lspconfig.nvim"]
+	path = modules/nvim/config/lua/plugins/lsp-bundle/submodules/mason-lspconfig.nvim
+	url = git@github.com:mason-org/mason-lspconfig.nvim.git
+[submodule "modules/nvim/config/lua/plugins/lsp-bundle/submodules/nvim-lspconfig"]
+	path = modules/nvim/config/lua/plugins/lsp-bundle/submodules/nvim-lspconfig
+	url = git@github.com:neovim/nvim-lspconfig.git
