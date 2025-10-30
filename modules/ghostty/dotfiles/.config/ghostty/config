@@ -1,10 +1,10 @@
 # Chrome
 window-decoration = false
-macos-non-native-fullscreen = true
+macos-non-native-fullscreen = padded-notch
 mouse-hide-while-typing = true
 
 # Colors
-theme = GruvboxDarkHard
+theme = "Gruvbox Dark Hard"
 font-family="Iosevka Fixed"
 font-size=15
 background=#0c0f0e
