@@ -20,6 +20,9 @@ nodes:
   - containerPort: 30443
     hostPort: 443
     protocol: TCP
+  - containerPort: 30000
+    hostPort: 30000
+    protocol: TCP
 EOF
 
 kind create cluster --kubeconfig ~/.kube/config.d/kind --config=$CONFIG
@@ -39,6 +42,7 @@ releases:
     values:
       - controller:
           allowSnippetAnnotations: true
+          progressDeadlineSeconds: 10
           config:
             force-ssl-redirect: true
           service:
