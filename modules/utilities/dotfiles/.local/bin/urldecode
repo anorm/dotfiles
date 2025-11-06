@@ -14,6 +14,10 @@ import urllib.parse
 @click.argument("input", type=click.File("r"), required=False, default=sys.stdin)
 @click.option("--output", "-o", type=click.File("w"), default=sys.stdout)
 def main(input, output):
+    """
+    URL decodes input (default: stdin) to output (default: stdout) in accordance with
+    RFC 3986
+    """
     text = input.read().strip()
     output.write(urllib.parse.unquote(text))
     output.write("\n")
