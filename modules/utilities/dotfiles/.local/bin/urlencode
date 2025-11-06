@@ -1,0 +1,23 @@
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.8"
+# dependencies = [
+#   "click",
+# ]
+# ///
+import click
+import sys
+import urllib.parse
+
+
+@click.command
+@click.argument("input", type=click.File("r"), required=False, default=sys.stdin)
+@click.option("--output", "-o", type=click.File("w"), default=sys.stdout)
+def main(input, output):
+    text = input.read().strip()
+    output.write(urllib.parse.quote(text))
+    output.write("\n")
+
+
+if __name__ == "__main__":
+    main()
