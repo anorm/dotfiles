@@ -1,0 +1,24 @@
+# Sizes
+HISTSIZE=100000
+SAVEHIST=100000
+HISTFILE=~/.zsh_history
+
+# Realtime, multi-shell friendly
+setopt APPEND_HISTORY            # never clobber the file
+setopt INC_APPEND_HISTORY        # write each command right after it runs
+setopt SHARE_HISTORY             # merge history across live shells
+setopt HIST_FCNTL_LOCK           # file locking to avoid corruption (esp. over NFS)
+
+# Keep it clean
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_IGNORE_SPACE         # commands starting with space aren't saved
+
+# Useful metadata & safety
+setopt EXTENDED_HISTORY          # timestamps + durations
+setopt HIST_VERIFY               # expand history, then confirm before execution
+
