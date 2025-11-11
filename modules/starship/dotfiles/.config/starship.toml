@@ -1,0 +1,24 @@
+[package]
+disabled = true
+
+[kubernetes]
+disabled = false
+
+[python]
+symbol = ""
+format = '[${symbol}${pyenv_prefix}(\($virtualenv\) )]($style)'
+
+[[kubernetes.contexts]]
+context_pattern = "arn:aws:eks:eu-north-1:891377046560:cluster/eks-cluster-dev"
+style = "green"
+context_alias = "spenn-dev"
+
+[[kubernetes.contexts]]
+context_pattern = "arn:aws:eks:eu-north-1:891377202159:cluster/eks-cluster-test"
+style = "yellow"
+context_alias = "spenn-test"
+
+[[kubernetes.contexts]]
+context_pattern = "arn:aws:eks:eu-north-1:975050041551:cluster/eks-cluster-prod"
+style = "bold red blink"
+context_alias = "🚫 spenn-prod 🚫"
