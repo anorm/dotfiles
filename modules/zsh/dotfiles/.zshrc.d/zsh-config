@@ -1,10 +1,4 @@
 zstyle ':completion:*' special-dirs true
 
-# Emacs bindings
-bindkey -e
-
-# Shift-left
-bindkey '^[[1;2D' backward-word
-
-# Shift-right
-bindkey '^[[1;2C' forward-word
+# vi bindings
+bindkey -v
