@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -eu
+
+if [[ $(git status --porcelain) ]]; then
+    git -c color.ui=always st
+fi
