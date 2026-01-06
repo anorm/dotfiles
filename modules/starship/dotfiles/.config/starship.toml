@@ -1,6 +1,12 @@
 [package]
 disabled = true
 
+[helm]
+disabled = true
+
+[java]
+disabled = true
+
 [kubernetes]
 disabled = false
 
