@@ -56,6 +56,7 @@ function install_ingress_nginx() {
                       https: 30443
         "
     yaml_file=$(mktemp)
+    printf '%s' "$yaml" | yq . > $yaml_file
 
     export KUBECONFIG=$CONFIG_FILE
     helmfile apply -f $yaml_file
