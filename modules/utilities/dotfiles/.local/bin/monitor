@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -euo pipefail
+
+function usage() {
+    echo "Usage: monitor command [interval]"
+    exit 1
+}
+
+if (( $# > 2 )); then
+    usage
+fi
+
+cmd="$1"
+interval="${2:-60}"
+previous=""
+
+echo "Executing '$cmd' every ${interval}s"
+
+while true; do
+    $cmd
+    sleep $interval
+done \
+| while IFS= read -r line; do
+    [[ "$line" == "$previous" ]] && continue
+
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $line"
+    previous="$line"
+done
