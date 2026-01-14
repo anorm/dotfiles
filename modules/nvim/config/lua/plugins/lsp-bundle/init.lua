@@ -10,6 +10,20 @@ vim.diagnostic.config({
 })
 vim.keymap.set("n", "<Leader>d", ":lua vim.diagnostic.open_float(0, {scope='line'})<CR>")
 
+vim.lsp.config("terraformls", {
+  init_options = {
+    terraform = {
+        path = vim.fn.exepath("tofu")
+    }
+  },
+})
+
 -- Init plugins
 require("mason").setup()
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup({
+  ensure_installed = {
+      "pylsp",
+      "rust_analyzer",
+      "terraformls",
+  },
+})
