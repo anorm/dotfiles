@@ -19,10 +19,10 @@ function header {
 out=$(mktemp)
 err=$(mktemp)
 
-while read repo; do
-    git -C $repo "$@" > $out 2> $err
-    if [ -s $out -o -s $err ]; then
-        header $repo
-        cat $out $err
+while read -r repo; do
+    git -C "$repo" "$@" > "$out" 2> "$err"
+    if [ -s "$out" ] || [ -s "$err" ]; then
+        header "$repo"
+        cat "$out" "$err"
     fi
 done < <(find . -name .git -type d -exec dirname {} \;)

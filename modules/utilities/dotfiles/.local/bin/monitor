@@ -7,19 +7,21 @@ function usage() {
     exit 1
 }
 
-if (( $# > 2 )); then
+if (( $# <1 || $# > 2 )); then
     usage
 fi
 
 cmd="$1"
 interval="${2:-60}"
+[[ "$interval" =~ ^-?[0-9]+([.][0-9]+)?$ ]] || usage
+
 previous=""
 
 echo "Executing '$cmd' every ${interval}s"
 
 while true; do
     $cmd
-    sleep $interval
+    sleep "$interval"
 done \
 | while IFS= read -r line; do
     [[ "$line" == "$previous" ]] && continue

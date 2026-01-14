@@ -1,1 +1,5 @@
+#!/bin/bash
+
+set -euo pipefail
+
 kind delete cluster --kubeconfig ~/.kube/config.d/kind

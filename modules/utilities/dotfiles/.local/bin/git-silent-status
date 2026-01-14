@@ -8,13 +8,13 @@ if [[ $SHOW == 0 ]]; then
 fi
 
 if [[ $SHOW == 0 ]]; then
-    if [[ $(git rev-list @{u}..) ]]; then
+    if [[ $(git rev-list "@{u}..") ]]; then
         SHOW=1
     fi
 fi
 
 if [[ $SHOW == 0 ]]; then
-    if [[ $(git rev-list ..@{u}) ]]; then
+    if [[ $(git rev-list "..@{u}") ]]; then
         SHOW=1
     fi
 fi

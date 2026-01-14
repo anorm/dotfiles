@@ -25,11 +25,11 @@ while getopts h?i:n:p: OPT; do
             ;;
     esac
 done
-shift $(($OPTIND-1))
+shift $((OPTIND-1))
 
 MANIFEST=$(mktemp)
 
-cat << EOF > $MANIFEST
+cat << EOF > "$MANIFEST"
 apiVersion: v1
 kind: Pod
 metadata:
@@ -47,8 +47,8 @@ spec:
     tty: true
 EOF
 
-if [ ! -z $PVC ]; then
-cat << EOF >> $MANIFEST
+if [ ! -z "$PVC" ]; then
+cat << EOF >> "$MANIFEST"
     volumeMounts:
     - name: vol
       mountPath: /data
@@ -59,10 +59,10 @@ cat << EOF >> $MANIFEST
 EOF
 fi
 
-kubectl create -f $MANIFEST
-kubectl wait --for condition=Ready -n $NAMESPACE pod/$PODNAME --timeout=600s
-kubectl attach -it -n $NAMESPACE pod/$PODNAME
+kubectl create -f "$MANIFEST"
+kubectl wait --for condition=Ready -n "$NAMESPACE" "pod/$PODNAME" --timeout=600s
+kubectl attach -it -n "$NAMESPACE" "pod/$PODNAME"
 sleep 0.3
-kubectl delete -n $NAMESPACE pod/$PODNAME
+kubectl delete -n "$NAMESPACE" "pod/$PODNAME"
 
-rm $MANIFEST
+rm "$MANIFEST"
