@@ -5,15 +5,15 @@ set -eu
 DIR="$( cd "$( dirname "$BASH_SOURCE" )" && pwd )"
 
 # Loop over all 'dotfiles' directories
-while read MODULE_DOTFILES; do
+while read -r MODULE_DOTFILES; do
     echo "Installing dotfiles: $MODULE_DOTFILES"
     (
         # Enter the dotfile directory
-        cd $MODULE_DOTFILES
+        cd "$MODULE_DOTFILES"
 
         # Loop over all files and symlinks
-        while read FILENAME; do
-            DIRNAME="$(dirname $FILENAME)"
+        while read -r FILENAME; do
+            DIRNAME="$(dirname "$FILENAME")"
             FILENAME="${FILENAME:2}"
             mkdir -p "${HOME}/$DIRNAME"
             echo "  ~/$FILENAME"
