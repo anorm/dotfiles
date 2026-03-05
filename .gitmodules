@@ -1,24 +1,30 @@
 [submodule "modules/nvim/config/pack/plugins/start/fzf"]
 	path = modules/nvim/config/lua/plugins/fzf-bundle/submodules/fzf
-	url = git@github.com:junegunn/fzf.git
+	url = https://github.com/junegunn/fzf.git
 [submodule "modules/nvim/config/pack/plugins/start/fzf.vim"]
 	path = modules/nvim/config/lua/plugins/fzf-bundle/submodules/fzf.vim
-	url = git@github.com:junegunn/fzf.vim.git
+	url = https://github.com/junegunn/fzf.vim.git
 [submodule "modules/nvim/config/pack/plugins/start/vim-fugitive"]
 	path = modules/nvim/config/lua/plugins/vim-fugitive-bundle/submodules/vim-fugitive
-	url = git@github.com:tpope/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive.git
 [submodule "modules/nvim/config/pack/plugins/start/gruvbox.nvim"]
 	path = modules/nvim/config/lua/plugins/gruvbox-bundle/submodules/gruvbox.nvim
-	url = git@github.com:ellisonleao/gruvbox.nvim.git
+	url = https://github.com/ellisonleao/gruvbox.nvim.git
 [submodule "modules/nvim/config/pack/plugins/start/oil.nvim"]
 	path = modules/nvim/config/lua/plugins/oil-bundle/submodules/oil.nvim
-	url = git@github.com:stevearc/oil.nvim.git
+	url = https://github.com/stevearc/oil.nvim.git
 [submodule "modules/nvim/config/lua/plugins/mason-bundle/submodules/mason.nvim"]
 	path = modules/nvim/config/lua/plugins/lsp-bundle/submodules/mason.nvim
-	url = git@github.com:mason-org/mason.nvim.git
+	url = https://github.com/mason-org/mason.nvim.git
 [submodule "modules/nvim/config/lua/plugins/mason-bundle/submodules/mason-lspconfig.nvim"]
 	path = modules/nvim/config/lua/plugins/lsp-bundle/submodules/mason-lspconfig.nvim
-	url = git@github.com:mason-org/mason-lspconfig.nvim.git
+	url = https://github.com/mason-org/mason-lspconfig.nvim.git
 [submodule "modules/nvim/config/lua/plugins/lsp-bundle/submodules/nvim-lspconfig"]
 	path = modules/nvim/config/lua/plugins/lsp-bundle/submodules/nvim-lspconfig
-	url = git@github.com:neovim/nvim-lspconfig.git
+	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule "modules/nvim/config/lua/plugins/treesitter-bundle/submodules/nvim-treesitter"]
+	path = modules/nvim/config/lua/plugins/treesitter-bundle/submodules/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+[submodule "modules/nvim/config/lua/plugins/treesitter-bundle/submodules/nvim-treesitter-context"]
+	path = modules/nvim/config/lua/plugins/treesitter-bundle/submodules/nvim-treesitter-context
+	url = https://github.com/nvim-treesitter/nvim-treesitter-context.git

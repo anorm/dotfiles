@@ -9,6 +9,17 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.scrolloff = 10
+vim.opt.colorcolumn = "80"
+vim.opt.foldlevel = 99
+vim.opt.foldcolumn = "auto:9"
+vim.opt.fillchars = {
+  fold = " ",
+  foldopen = "",
+  foldclose = "",
+  foldsep = " ",
+  diff = "╱",
+  eob = " ",
+}
 
 vim.filetype.add({
   extension = {

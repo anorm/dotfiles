@@ -25,4 +25,4 @@ while read -r repo; do
         header "$repo"
         cat "$out" "$err"
     fi
-done < <(find . -name .git -type d -exec dirname {} \;)
+done < <(find . -name .git -exec dirname {} \;)
