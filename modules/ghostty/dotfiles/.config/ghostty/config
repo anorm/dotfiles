@@ -6,7 +6,7 @@ mouse-hide-while-typing = true
 # Colors
 theme = "Gruvbox Dark Hard"
 font-family="Iosevka Fixed"
-font-size=15
+font-size=16
 background=#0c0f0e
 
 # Key bindings
@@ -14,3 +14,8 @@ keybind = cmd+enter=toggle_fullscreen
 keybind = opt+right=unbind
 keybind = opt+left=unbind
 keybind = opt+space=text:\x20
+
+# Clipboard
+copy-on-select = clipboard
+clipboard-read = allow
+clipboard-write = allow
