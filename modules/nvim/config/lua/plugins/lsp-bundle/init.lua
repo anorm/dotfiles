@@ -22,7 +22,7 @@ vim.lsp.config("terraformls", {
 require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = {
-      "pylsp",
+      "pyright",
       "rust_analyzer",
       "terraformls",
   },
