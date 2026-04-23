@@ -23,6 +23,8 @@ while read -r MODULE_DOTFILES; do
                 # Make sure it's not a regular file
                 if [[ ! -L "${HOME}/$FILENAME" ]]; then
                     echo -e "\033[0;31mERROR: ~/$FILENAME already exists and is not a symlink\033[0m"
+                    echo "Check with:"
+                    echo "  nvim -d \"${HOME}/$FILENAME\" \"$DIR/$MODULE_DOTFILES/$FILENAME\""
                     exit 1
                 fi
 
