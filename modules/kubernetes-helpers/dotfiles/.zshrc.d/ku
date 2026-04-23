@@ -26,4 +26,4 @@ function _set_kube_config() {
 
 alias ku=_set_kube_config
 
-complete -W "$(ls ~/.kube/config.d)" _set_kube_config
+complete -W "$(ls ~/.kube/config.d)" -o bashdefault _set_kube_config
