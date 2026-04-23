@@ -3,5 +3,5 @@
 set -eu
 
 if [[ $(git status --porcelain) ]]; then
-    git -c color.ui=always st
+    git -c color.ui=always st "$@"
 fi
