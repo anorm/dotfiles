@@ -1,0 +1,21 @@
+#!/bin/bash
+INTERVAL=$1
+
+function usage() {
+    echo "$0 INTERVAL COMMAND [params...]" >&2
+}
+
+if ! [[ "$INTERVAL" =~ ^[0-9]+$ ]]; then
+    usage
+    exit 1
+fi
+shift
+if [[ $# -lt 1 ]]; then
+    usage
+    exit 1
+fi
+watch \
+    -t \
+    -n$INTERVAL \
+    -c \
+    "script -q /dev/null sh -c \"TERM=ansi $@\""
