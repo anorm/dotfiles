@@ -18,6 +18,14 @@ vim.lsp.config("terraformls", {
   },
 })
 
+vim.lsp.config("pyright", {
+  settings = {
+    pyright = {
+      disableTaggedHints = true,
+    },
+  },
+})
+
 -- Init plugins
 require("mason").setup()
 require("mason-lspconfig").setup({
