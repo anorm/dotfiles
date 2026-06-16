@@ -1,6 +1,6 @@
  -- Highlight word under cursor like `*`, but don't jump.
  -- Still sets the last-search pattern, so `n`/`N` work.
- vim.keymap.set("n", "<leader>*", function()
+ vim.keymap.set("n", "+", function()
    local word = vim.fn.expand("<cword>")
    -- very nomagic + whole-word boundaries; escape backslashes for \V
    vim.fn.setreg("/", ([[\V\<%s\>]]):format(vim.fn.escape(word, [[\]])))
