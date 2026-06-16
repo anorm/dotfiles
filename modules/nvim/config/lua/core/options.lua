@@ -16,9 +16,9 @@ vim.opt.foldlevel = 99
 vim.opt.foldcolumn = "4"
 vim.opt.fillchars = {
   fold = " ",
-  foldopen = "",
+  foldopen = "┌",
   foldclose = "",
-  foldsep = " ",
+  foldsep = "┊",
   diff = "╱",
   eob = " ",
 }
