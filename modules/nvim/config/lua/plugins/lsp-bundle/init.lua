@@ -8,7 +8,7 @@ vim.opt.runtimepath:append(current_dir .. "/submodules/mason-lspconfig.nvim")
 vim.diagnostic.config({
   virtual_text = false
 })
-vim.keymap.set("n", "<Leader>d", ":lua vim.diagnostic.open_float(0, {scope='line'})<CR>")
+vim.keymap.set("n", "<Leader>d", ":lua vim.diagnostic.open_float(0, {scope='line',source='always'})<CR>")
 
 vim.lsp.config("terraformls", {
   init_options = {
