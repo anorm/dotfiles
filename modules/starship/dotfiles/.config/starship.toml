@@ -10,6 +10,9 @@ disabled = true
 [kubernetes]
 disabled = false
 
+[docker_context]
+disabled = true
+
 [python]
 symbol = ""
 format = '[${symbol}${pyenv_prefix}(\($virtualenv\) )]($style)'
