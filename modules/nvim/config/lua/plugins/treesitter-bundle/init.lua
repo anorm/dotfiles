@@ -24,7 +24,9 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
-require("treesitter-context").setup()
+require("treesitter-context").setup {
+    multiline_threshold = 1,
+}
 
 
 -- Key mappings
