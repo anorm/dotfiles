@@ -7,3 +7,5 @@ set main-view = \
     commit-title:graph=v2,refs=true
 
 bind generic y +sh -c 'printf "%s" "$1" | pbcopy && printf "Copied %s to clipboard\\n" "$1"' -- %(commit)
+
+set wrap-search = false
