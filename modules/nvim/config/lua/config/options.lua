@@ -1,5 +1,4 @@
-vim.g.mapleader = ','              -- Use comma as Leader
-
+vim.opt.background = "dark"
 vim.opt.wildmode = 'longest,list'  -- Make TAB completion use longest unique match (not first partial match)
 vim.opt.completeopt = { "menuone", "noselect", "longest", "preinsert" }
 -- vim.opt.completeopt = { "menuone", "noselect", "longest", "preinsert", "fuzzy" }
@@ -22,6 +21,10 @@ vim.opt.fillchars = {
   diff = "╱",
   eob = " ",
 }
+
+vim.diagnostic.config({
+  virtual_text = false
+})
 
 vim.filetype.add({
   extension = {

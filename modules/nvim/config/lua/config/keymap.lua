@@ -1,3 +1,6 @@
+vim.g.mapleader = ","
+vim.g.maplocalleader = "\\"
+
  -- Highlight word under cursor like `*`, but don't jump.
  -- Still sets the last-search pattern, so `n`/`N` work.
  vim.keymap.set("n", "+", function()
