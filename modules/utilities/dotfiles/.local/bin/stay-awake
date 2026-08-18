@@ -1,0 +1,37 @@
+#!/bin/bash
+
+caffeinate -i -d -- sh -c '
+    cleanup() {
+        if [ -n "${window_id:-}" ]; then
+            tmux rename-window -t "$window_id" "$old_name"
+            tmux set-option -w -t "$window_id" automatic-rename "$old_auto_rename"
+        fi
+    }
+
+    trap cleanup EXIT
+    trap "exit 129" HUP
+    trap "exit 130" INT
+    trap "exit 143" TERM
+
+    if [ -n "${TMUX_PANE:-}" ]; then
+        window_id=$(tmux display-message -p -t "$TMUX_PANE" "#{window_id}")
+        old_name=$(tmux display-message -p -t "$TMUX_PANE" "#{window_name}")
+
+        if [ -n "$window_id" ]; then
+            old_auto_rename=$(tmux show-options -w -v -t "$window_id" automatic-rename)
+        fi
+    fi
+
+    while pmset -g batt | head -1 | grep -q "AC Power"; do
+        awake=$(ps -o etime= -p "$$")
+
+        if [ -n "${window_id:-}" ]; then
+            tmux rename-window -t "$window_id" "Awake $awake"
+        fi
+
+        printf "\r[Running on AC power] Been awake for %s" "$awake"
+        sleep 1
+    done
+
+    printf "\nPower disconnected; stopping caffeinate.\n"
+'
