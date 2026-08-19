@@ -5,11 +5,7 @@ return {
     priority = 100,
     build = ":TSUpdate",
     config = function()
-      require("nvim-treesitter").setup({
-          highlight = {
-              enable = true,
-          },
-      })
+      require("nvim-treesitter").setup()
 
       require("nvim-treesitter").install({
         "bash",
