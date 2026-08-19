@@ -21,6 +21,7 @@ vim.opt.fillchars = {
   diff = "╱",
   eob = " ",
 }
+vim.opt.exrc = true -- Enable loading of local .nvim.lua
 
 vim.diagnostic.config({
   virtual_text = false
