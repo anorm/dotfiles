@@ -24,6 +24,9 @@ vim.opt.fillchars = {
 vim.opt.exrc = true -- Enable loading of local .nvim.lua
 
 vim.diagnostic.config({
+  jump = {
+    wrap = false,
+  },
   virtual_text = false
 })
 
